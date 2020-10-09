@@ -1,0 +1,36 @@
+
+
+Project Shopit.com
+Build an online market where users can purchase goods (all sorts of products) products will be posted by sellers there are two types of acctounts sellers and consumer.
+
+Task 
+1 - User can signup.
+2 - Only user can purchase products.
+3 -  
+
+
+[ ] - Client
+    {
+    }
+
+[ ] - Server
+    {
+        [ ] - GraphQl api
+            {
+                [ ] - User System
+                {
+                    []-Login
+                    []-SignUp
+                    []-Delete
+                    []-Update
+                }
+                [ ] - ProductPurchase
+                {
+                    
+                }
+            }
+    }
+
+
+
+[ ] - Shopit.com
