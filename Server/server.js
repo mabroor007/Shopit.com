@@ -1,19 +1,27 @@
 const express = require("express");
 const GraphQl = require("./Graphql/gqlServer");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
+
+// Configuration
+dotenv.config();
 
 // App initialization
 const app = express();
 
 // Database Connection
 mongoose.connect(
-  "mongodb://127.0.0.1:27017/shopit",
+  process.env.MONGOURI,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   },
   () => console.log("Database Connected 🚀 ...")
 );
+
+// Cookie Parser Middleware
+app.use(cookieParser());
 
 // Middleware for GraphQl api
 GraphQl.applyMiddleware({ app });

@@ -1,7 +1,10 @@
+const api = require("../../api/api");
+
 module.exports = {
   Query: {
-    hello: (_, { name }) => {
-      return `Hello ${name}`;
-    },
+    hello: () => "Hello world",
+  },
+  Mutation: {
+    createUser: (_, userData, { res }) => api.createUser(userData, res),
   },
 };
