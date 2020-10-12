@@ -35,3 +35,5 @@ const userSchema = new Schema({
     type: [Boolean, "Invalid phone varification type!"],
   },
 });
+
+module.exports = model("user", userSchema);
