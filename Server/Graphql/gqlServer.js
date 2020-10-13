@@ -13,7 +13,7 @@ module.exports = new ApolloServer({
     let userData;
     try {
       // token check
-      let token = req.cookies.jwt;
+      let token = req.cookies._user;
       userData = verify(token, process.env.JWT_SECTRET);
     } catch {}
     // setting userData inside context

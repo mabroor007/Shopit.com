@@ -27,6 +27,7 @@ const userSchema = new Schema({
   password: {
     required: true,
     type: String,
+    minlength: [10, "Minimum length should be 8 Character"],
   },
   phoneNo: {
     required: true,
