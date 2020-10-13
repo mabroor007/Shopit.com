@@ -16,7 +16,8 @@ module.exports = new ApolloServer({
       // token check
       let token = req.cookies._user;
       userData = verify(token, process.env.JWT_SECTRET);
-      const user = await api.getUserDataById(userData.uid);
+      let user = await api.getUserDataById(userData.uid);
+      user = user._doc;
       if (user) return { user: { ...user, password: null }, req, res };
     } catch {}
     return { user: null, req, res };
