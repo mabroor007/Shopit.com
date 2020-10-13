@@ -41,3 +41,26 @@ exports.loginUser = async ({ email, password }, res) => {
     return `Error:${error.message}`;
   }
 };
+
+exports.getUserDataById = async (userId) => {
+  try {
+    const user = await Users.findById(userId);
+    if (user) return user;
+    return "User Not Found";
+  } catch (error) {
+    return `Error:${error.message}`;
+  }
+};
+
+exports.logOutUser = async (res) => {
+  res.cookie("_user", "", { httpOnly: true });
+  return "Loged out";
+};
+
+exports.getCurrentUserData = (user) => {
+  if (user) {
+    return { ...user, _id: null };
+  } else {
+    return null;
+  }
+};
