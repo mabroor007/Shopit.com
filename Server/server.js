@@ -21,14 +21,11 @@ mongoose.connect(
   () => console.log("Database Connected 🚀 ...")
 );
 
-// cors
-app.use(cors());
-
 // Cookie Parser Middleware
 app.use(cookieParser());
 
 // Middleware for GraphQl api
-GraphQl.applyMiddleware({ app });
+GraphQl.applyMiddleware({ app, cors: { origin: true, credentials: true } });
 
 app.listen(4000, () => {
   console.log("Server Up and Running 🚀 on port 4000...");
