@@ -3,6 +3,7 @@ const GraphQl = require("./Graphql/gqlServer");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 // Configuration
 dotenv.config();
@@ -19,6 +20,9 @@ mongoose.connect(
   },
   () => console.log("Database Connected 🚀 ...")
 );
+
+// cors
+app.use(cors());
 
 // Cookie Parser Middleware
 app.use(cookieParser());
