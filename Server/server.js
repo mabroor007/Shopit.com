@@ -23,6 +23,9 @@ mongoose.connect(
 // Cookie Parser Middleware
 app.use(cookieParser());
 
+// Static
+app.use(express.static("public"));
+
 // Middleware for GraphQl api
 GraphQl.applyMiddleware({ app, cors: { origin: true, credentials: true } });
 

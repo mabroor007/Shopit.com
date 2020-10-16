@@ -4,9 +4,13 @@ import App from "./App/App";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { createUploadLink } from "apollo-upload-client";
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql",
+  link: createUploadLink({
+    uri: "http://localhost:4000/graphql",
+    credentials: "include",
+  }),
   cache: new InMemoryCache(),
   credentials: "include",
 });

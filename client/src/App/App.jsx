@@ -1,11 +1,21 @@
 import React from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { loginUser } from "../Graphql/Mutation/mutation";
+import { loginUser, uploadFile } from "../Graphql/Mutation/mutation";
 import { getCurrentUserDataQuery } from "../Graphql/Query/query";
 
 const App = () => {
   let [login, { data }] = useMutation(loginUser);
   const Query = useQuery(getCurrentUserDataQuery);
+  const [fileUpload] = useMutation(uploadFile, {
+    onCompleted: (data) => console.log(data),
+  });
+  const handelFileUpload = (e) => {
+    e.preventDefault();
+    const file = e.target.files[0];
+    if (file) {
+      fileUpload({ variables: { file } });
+    }
+  };
 
   return (
     <div>
@@ -25,6 +35,8 @@ const App = () => {
       >
         login
       </button>
+      <hr style={{ color: "orange" }} />
+      <input type="file" onChange={handelFileUpload} />
     </div>
   );
 };

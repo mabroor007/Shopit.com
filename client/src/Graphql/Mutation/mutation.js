@@ -1,3 +1,4 @@
 import { loginUser } from "./userMutation";
+import { uploadFile } from "./fileMutation";
 
-export { loginUser };
+export { loginUser, uploadFile };
