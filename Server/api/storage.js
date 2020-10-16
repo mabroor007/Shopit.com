@@ -1,16 +1,23 @@
 const cloudinary = require("../Storage/cloudinary");
-const fs = require("fs");
-const path = require("path");
 
 exports.uploadFile = async (file) => {
   const { createReadStream, filename } = await file;
-  const stream = createReadStream();
+  var res = [];
+  const cld_file_upload = cloudinary.uploader.upload_stream(
+    { folder: "shopit" },
+    (error, result) => {
+      if (error) console.log(err);
+      res.push(result.secure_url);
+      console.log(res);
+    }
+  );
 
-  const pathname = path.join(__dirname, `../public/images/${filename}`);
+  await new Promise((res) => {
+    createReadStream().pipe(cld_file_upload).on("finish", res);
+  });
 
-  await stream.pipe(fs.createWriteStream(pathname));
   return {
-    url: `http://localhost:4000/public/images/${filename}`,
+    url: `https://res.cloudinary.com/dumb56xhj/image/upload/v1602892312/shopit/${filename}`,
     filename,
   };
 };

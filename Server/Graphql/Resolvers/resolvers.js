@@ -1,5 +1,4 @@
 const api = require("../../api/api");
-const cloudinary = require("../../Storage/cloudinary");
 
 module.exports = {
   Query: {
