@@ -4,11 +4,14 @@ import { loginUser, uploadFile } from "../Graphql/Mutation/mutation";
 import { getCurrentUserDataQuery } from "../Graphql/Query/query";
 
 const App = () => {
+  // Hooks
   let [login, { data }] = useMutation(loginUser);
   const Query = useQuery(getCurrentUserDataQuery);
   const [fileUpload] = useMutation(uploadFile, {
     onCompleted: (data) => console.log(data),
   });
+
+  // Methods
   const handelFileUpload = (e) => {
     e.preventDefault();
     const file = e.target.files[0];
