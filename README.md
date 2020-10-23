@@ -2,4 +2,6 @@
 
 Online Ecomerece Website
 
-this projet wass built with node
+# TECH
+
+Node, Express, JWT, GraphQl, React, Apollo Server, Apollo Client
