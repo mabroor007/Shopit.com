@@ -7,5 +7,5 @@ module.exports = {
   logOutUser: Users.logOutUser,
   getUserDataById: Users.getUserDataById,
   getCurrentUserData: Users.getCurrentUserData,
-  uploadFile: Storage.uploadFile,
+  uploadFileFromStream: Storage.uploadFileFromStream,
 };
